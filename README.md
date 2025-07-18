@@ -1,0 +1,5 @@
+# minibank
+
+- api
+- core
+- consumer
