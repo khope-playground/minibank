@@ -1,6 +1,7 @@
 package external.global.database
 
 import com.zaxxer.hikari.HikariDataSource
+import external.doamin.apply.persistence.LoanApplyTable
 import external.doamin.user.persistence.UserTable
 import jakarta.annotation.PostConstruct
 import org.jetbrains.exposed.sql.Database
@@ -25,7 +26,7 @@ class DatabaseInitializer(
         transaction {
             log.info("Creating tables...")
             SchemaUtils.create(
-                UserTable,
+                UserTable, LoanApplyTable
             )
         }
     }
