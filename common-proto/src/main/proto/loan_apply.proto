@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "external.proto";
+
+import "google/protobuf/empty.proto";
+
+service LoanApplyService {
+  rpc registerLoanApply(LoanApplyRequest) returns (LoanApplyResponse);
+  rpc originateLoanApply(OriginateApplyRequest) returns (google.protobuf.Empty);
+}
+
+message LoanApplyRequest {
+  int64 applyUid = 1;
+  int64 amount = 2;
+  float rate = 3;
+  int32 period = 4;
+}
+
+message LoanApplyResponse {
+  int64 applyUid = 1;
+  string message = 2; // Additional information about the application
+}
+
+message OriginateApplyRequest {
+  int64 applyUid = 1;
+}
