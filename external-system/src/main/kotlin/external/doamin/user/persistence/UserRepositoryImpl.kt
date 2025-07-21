@@ -2,10 +2,12 @@ package external.doamin.user.persistence
 
 import external.doamin.user.domain.model.User
 import org.jetbrains.exposed.sql.*
+import org.springframework.stereotype.Repository
 
+@Repository
 class UserRepositoryImpl: UserRepository {
 
-    override fun createUser(name: String, email: String, userType: UserType): Long {
+    override suspend fun createUser(name: String, email: String, userType: UserType): Long {
         return UserTable.insert {
             it[UserTable.name] = name
             it[UserTable.email] = email
@@ -13,7 +15,7 @@ class UserRepositoryImpl: UserRepository {
         } get UserTable.userUid
     }
 
-    override fun getUserByUid(userUid: Long): User? {
+    override suspend fun getUserByUid(userUid: Long): User? {
        return UserTable.selectAll().where { UserTable.userUid eq userUid }
             .singleOrNull()?.let { row ->
                row.toUser(row)

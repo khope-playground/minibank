@@ -43,6 +43,7 @@ dependencies {
     implementation("io.grpc:grpc-stub:1.64.0")
     implementation("com.google.protobuf:protobuf-java:3.25.3")
     implementation("io.grpc:grpc-kotlin-stub:1.4.1")
+    implementation("com.google.protobuf:protobuf-java-util:3.25.0")
 
     // Test
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

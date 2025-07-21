@@ -3,14 +3,13 @@ package external.doamin.user.persistence
 import external.doamin.user.domain.model.User
 
 interface UserRepository {
-
-    fun createUser(
+    suspend fun createUser(
         name: String,
         email: String,
         userType: UserType
     ): Long
 
-    fun getUserByUid(
+    suspend fun getUserByUid(
         userUid: Long
     ): User?
 }
