@@ -1,7 +1,9 @@
 package external.doamin.apply.application
 
 import external.doamin.apply.domain.service.LoanApplyService
+import org.springframework.stereotype.Component
 
+@Component
 class LoanApplyUseCase(
     private val loanApplyService: LoanApplyService
 ) {

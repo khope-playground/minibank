@@ -3,7 +3,9 @@ package external.doamin.user.domain.service
 import external.doamin.user.domain.model.User
 import external.doamin.user.persistence.UserRepository
 import org.slf4j.LoggerFactory
+import org.springframework.stereotype.Service
 
+@Service
 class UserService(
     private val userRepository: UserRepository
 ) {

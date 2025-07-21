@@ -2,7 +2,9 @@ package external.doamin.user.persistence
 
 import external.doamin.user.domain.model.User
 import org.jetbrains.exposed.sql.*
+import org.springframework.stereotype.Repository
 
+@Repository
 class UserRepositoryImpl: UserRepository {
 
     override suspend fun createUser(name: String, email: String, userType: UserType): Long {

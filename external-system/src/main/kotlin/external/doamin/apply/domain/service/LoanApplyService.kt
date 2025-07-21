@@ -7,7 +7,9 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.todayIn
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.slf4j.LoggerFactory.*
+import org.springframework.stereotype.Service
 
+@Service
 class LoanApplyService(
     private val loanApplyRepository: LoanApplyRepository
 ) {
@@ -45,14 +47,12 @@ class LoanApplyService(
     }
 
     suspend fun updateOriginateDateNow(applyUid: Long) {
-        newSuspendedTransaction {
-            val now = Clock.System.todayIn(TimeZone.UTC)
-            log.info("Updating originate date to now for applyUid: $applyUid, date: $now")
+        val now = Clock.System.todayIn(TimeZone.UTC)
+        log.info("Updating originate date to now for applyUid: $applyUid, date: $now")
 
-            val apply = loanApplyRepository.getApplyByUid(applyUid)
-                ?: throw IllegalArgumentException("Loan apply not found with uid: $applyUid")
+        val apply = loanApplyRepository.getApplyByUid(applyUid)
+            ?: throw IllegalArgumentException("Loan apply not found with uid: $applyUid")
 
-            loanApplyRepository.updateOriginateDateNow(apply.applyUid, now)
-        }
+        loanApplyRepository.updateOriginateDateNow(apply.applyUid, now)
     }
 }

@@ -4,7 +4,9 @@ import external.doamin.apply.domain.model.LoanApply
 import kotlinx.datetime.LocalDate
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.springframework.stereotype.Repository
 
+@Repository
 class LoanApplyRepositoryImpl : LoanApplyRepository {
 
     override suspend fun createLoanApply(loanApply: LoanApply): LoanApply {
