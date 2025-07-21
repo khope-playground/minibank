@@ -1,15 +1,20 @@
 import com.google.protobuf.gradle.id
 
 plugins {
+    kotlin("jvm")
     id("java")
     id("com.google.protobuf")
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
     implementation("com.google.protobuf:protobuf-java:3.25.3")
     implementation("io.grpc:grpc-protobuf:1.64.0")
     implementation("io.grpc:grpc-stub:1.64.0")
     implementation("io.grpc:grpc-kotlin-stub:1.4.1")
+
+    runtimeOnly("io.grpc:grpc-netty-shaded:1.64.0")
 }
 
 protobuf {
