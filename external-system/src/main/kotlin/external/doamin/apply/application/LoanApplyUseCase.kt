@@ -13,12 +13,19 @@ class LoanApplyUseCase(
         rate: Double,
         period: Int,
         borrowerUserUid: Long
-    ) = loanApplyService.registerLoanApply(
-        amount = amount,
-        rate = rate,
-        period = period,
-        borrowerUserUid = borrowerUserUid
-    )
+    ): Long {
+        loanApplyService.validateApplyAndBorrowerUser(
+            amount = amount,
+            borrowerUserUid = borrowerUserUid
+        )
+
+        return loanApplyService.registerLoanApply(
+            amount = amount,
+            rate = rate,
+            period = period,
+            borrowerUserUid = borrowerUserUid
+        )
+    }
 
     suspend fun updateOriginateDateNow(applyUid: Long) = loanApplyService.updateOriginateDateNow(applyUid)
 }
