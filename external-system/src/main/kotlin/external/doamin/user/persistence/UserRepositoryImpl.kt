@@ -5,7 +5,7 @@ import org.jetbrains.exposed.sql.*
 import org.springframework.stereotype.Repository
 
 @Repository
-class UserRepositoryImpl: UserRepository {
+class UserRepositoryImpl : UserRepository {
 
     override suspend fun createUser(name: String, email: String, userType: UserType): Long {
         return UserTable.insert {
@@ -16,10 +16,10 @@ class UserRepositoryImpl: UserRepository {
     }
 
     override suspend fun getUserByUid(userUid: Long): User? {
-       return UserTable.selectAll().where { UserTable.userUid eq userUid }
+        return UserTable.selectAll().where { UserTable.userUid eq userUid }
             .singleOrNull()?.let { row ->
-               row.toUser(row)
-           }
+                row.toUser(row)
+            }
     }
 
     private fun ResultRow.toUser(row: ResultRow): User {

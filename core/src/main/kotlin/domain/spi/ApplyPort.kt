@@ -9,7 +9,7 @@ interface ApplyPort {
         rate: Double,
         period: Int,
         borrowerUserUid: Long
-    ) : LoanApplyResponse
+    ): LoanApplyResponse
 
-    suspend fun originateLoanApply(applyUid: Int)
+    suspend fun originateLoanApply(applyUid: Long)
 }

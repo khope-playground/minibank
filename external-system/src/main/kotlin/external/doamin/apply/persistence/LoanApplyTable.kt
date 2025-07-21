@@ -3,7 +3,7 @@ package external.doamin.apply.persistence
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.kotlin.datetime.date
 
-object LoanApplyTable : Table("lo_apply"){
+object LoanApplyTable : Table("lo_apply") {
     val applyUid = long("apply_uid").autoIncrement()
     val amount = long("amount")
     val rate = double("rate")

@@ -4,11 +4,11 @@ import application.dto.LoanApplyResponse
 import domain.spi.ApplyPort
 import external.proto.LoanApplyRequest
 import external.proto.LoanApplyServiceGrpcKt
+import external.proto.OriginateApplyRequest
 
 class ApplyGrpcAdapter(
     private val stub: LoanApplyServiceGrpcKt.LoanApplyServiceCoroutineStub
 ) : ApplyPort {
-
 
     override suspend fun registerLoanApply(
         applyUid: Long,
@@ -32,9 +32,11 @@ class ApplyGrpcAdapter(
         )
     }
 
-    override suspend fun originateLoanApply(applyUid: Int) {
-        TODO("Not yet implemented")
+    override suspend fun originateLoanApply(applyUid: Long) {
+        stub.originateLoanApply(
+            OriginateApplyRequest.newBuilder()
+                .setApplyUid(applyUid)
+                .build()
+        )
     }
-
-
 }

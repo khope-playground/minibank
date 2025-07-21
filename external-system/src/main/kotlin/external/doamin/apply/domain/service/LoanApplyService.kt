@@ -37,11 +37,11 @@ class LoanApplyService(
             val createdLoanApply = loanApplyRepository.createLoanApply(loanApply)
             log.info(
                 "Loan apply created with uid: " +
-                        "${createdLoanApply.applyUid}, " +
-                        "amount: ${createdLoanApply.amount}, " +
-                        "rate: ${createdLoanApply.rate}, " +
-                        "period: ${createdLoanApply.period}, " +
-                        "borrowerUserUid: ${createdLoanApply.borrowerUserUid}"
+                    "${createdLoanApply.applyUid}, " +
+                    "amount: ${createdLoanApply.amount}, " +
+                    "rate: ${createdLoanApply.rate}, " +
+                    "period: ${createdLoanApply.period}, " +
+                    "borrowerUserUid: ${createdLoanApply.borrowerUserUid}"
             )
             createdLoanApply.applyUid
         }

@@ -11,7 +11,7 @@ class UserGrpcEndpoint(
     private val userUseCase: UserUseCase
 ) : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
 
-   override suspend fun getUser(request: GetUserRequest): GetUserResponse {
+    override suspend fun getUser(request: GetUserRequest): GetUserResponse {
         val user = userUseCase.getUserByUid(request.userUid)
         return GetUserResponse.newBuilder()
             .setUserUid(user.userUid)
