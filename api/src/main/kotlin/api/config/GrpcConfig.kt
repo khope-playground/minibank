@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class GrpcConfig {
-
     @Bean
     fun grpcChannel(): ManagedChannel = ManagedChannelBuilder
         .forAddress("localhost", 9000)
@@ -28,15 +27,5 @@ class GrpcConfig {
     @Bean
     fun applyStub(channel: ManagedChannel): LoanApplyServiceCoroutineStub {
         return LoanApplyServiceCoroutineStub(channel)
-    }
-
-    @Bean
-    fun userPort(userStub: UserServiceCoroutineStub): UserPort {
-        return UserGrpcAdapter(userStub)
-    }
-
-    @Bean
-    fun applyPort(applyStub: LoanApplyServiceCoroutineStub): ApplyPort {
-        return ApplyGrpcAdapter(applyStub)
     }
 }
