@@ -37,6 +37,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
 
     // gRPC
+    implementation("net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE")
     implementation("io.grpc:grpc-netty-shaded:1.64.0")
     implementation("io.grpc:grpc-protobuf:1.64.0")
     implementation("io.grpc:grpc-stub:1.64.0")
