@@ -7,7 +7,7 @@ class Heartbeat {
     private val log = logger<Heartbeat>()
 
     suspend fun start() {
-        while(true) {
+        while (true) {
             log.info("Heartbeat: Application is running...")
             delay(5000) // Delay for 5 seconds
         }
