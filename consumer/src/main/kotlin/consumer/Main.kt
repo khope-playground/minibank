@@ -1,23 +1,26 @@
 package consumer
 
 import consumer.common.logger
-import consumer.network.Heartbeat
-import consumer.network.HeartbeatServer
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+import consumer.config.ConsumerAppConfig
 import kotlinx.coroutines.runBlocking
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 class ConsumerAppMain
 
 private val log = logger<ConsumerAppMain>()
 
 fun main(): Unit = runBlocking {
-    log.info("Starting Consumer Application...")
-    val server = HeartbeatServer(9090)
-    val heartbeat = Heartbeat()
+    log.info("Initializing Consumer Application...")
+    val applicationContext = AnnotationConfigApplicationContext(ConsumerAppConfig::class.java)
+    val appServer = applicationContext.getBean(ConsumerAppServer::class.java)
 
-    coroutineScope {
-        launch { server.start() }
-        launch { heartbeat.start() }
-    }
+    Runtime.getRuntime().addShutdownHook(
+        Thread {
+            log.info("*** Shutting down Consumer Application ***")
+            appServer.stop()
+            log.info("*** Consumer Application shut down ***")
+        }
+    )
+
+    appServer.start()
 }
