@@ -1,4 +1,4 @@
-package consumer
+package consumer.network
 
 import com.sun.net.httpserver.HttpExchange
 import com.sun.net.httpserver.HttpHandler
