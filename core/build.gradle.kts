@@ -1,6 +1,9 @@
 plugins {
     kotlin("jvm")
-    id("com.google.protobuf") version "0.9.4"
+    kotlin("plugin.spring")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    id("com.google.protobuf")
     id("java")
 }
 
@@ -14,6 +17,8 @@ dependencies {
     implementation("io.grpc:grpc-netty-shaded:1.64.0")
     implementation("io.grpc:grpc-stub:1.64.0")
     implementation("io.grpc:grpc-kotlin-stub:1.4.1")
+
+    implementation("org.springframework:spring-context")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
