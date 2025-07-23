@@ -1,4 +1,4 @@
-package consumer
+package consumer.network
 
 import consumer.common.logger
 import kotlinx.coroutines.delay
