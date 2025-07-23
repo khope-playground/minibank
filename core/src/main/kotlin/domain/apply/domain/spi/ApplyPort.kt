@@ -1,6 +1,6 @@
-package domain.spi
+package domain.apply.domain.spi
 
-import application.dto.LoanApplyResponse
+import domain.user.application.dto.LoanApplyResponse
 
 interface ApplyPort {
     suspend fun registerLoanApply(

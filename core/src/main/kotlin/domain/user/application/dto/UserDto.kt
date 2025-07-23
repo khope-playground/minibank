@@ -1,4 +1,4 @@
-package application.dto
+package domain.user.application.dto
 
 data class UserDto(
     val userUid: Long = 0L,

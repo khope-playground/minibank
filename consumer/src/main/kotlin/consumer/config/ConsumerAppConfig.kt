@@ -1,6 +1,6 @@
 package consumer.config
 
-import config.CoreConfig
+import global.config.CoreConfig
 import consumer.ConsumerAppServer
 import consumer.network.Heartbeat
 import consumer.network.HeartbeatServer

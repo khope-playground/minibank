@@ -1,8 +1,8 @@
 package api.controller
 
-import application.dto.UserDto
-import domain.spi.ApplyPort
-import domain.spi.UserPort
+import domain.user.application.dto.UserDto
+import domain.apply.domain.spi.ApplyPort
+import domain.user.domain.spi.UserPort
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController

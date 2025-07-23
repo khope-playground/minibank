@@ -1,6 +1,6 @@
-package domain.spi
+package domain.user.domain.spi
 
-import application.dto.UserDto
+import domain.user.application.dto.UserDto
 
 interface UserPort {
     suspend fun getUserByUid(userUid: Long): UserDto

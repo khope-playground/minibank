@@ -1,7 +1,7 @@
-package infra.grpc.client.apply
+package domain.apply.infra.grpc
 
-import application.dto.LoanApplyResponse
-import domain.spi.ApplyPort
+import domain.user.application.dto.LoanApplyResponse
+import domain.apply.domain.spi.ApplyPort
 import external.proto.LoanApplyRequest
 import external.proto.LoanApplyServiceGrpcKt
 import external.proto.OriginateApplyRequest

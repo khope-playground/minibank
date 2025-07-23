@@ -1,11 +1,11 @@
-package config
+package global.config
 
-import domain.spi.ApplyPort
-import domain.spi.UserPort
+import domain.apply.domain.spi.ApplyPort
+import domain.user.domain.spi.UserPort
 import external.proto.LoanApplyServiceGrpcKt
 import external.proto.UserServiceGrpcKt
-import infra.grpc.client.apply.ApplyGrpcAdapter
-import infra.grpc.client.user.UserGrpcAdapter
+import domain.apply.infra.grpc.ApplyGrpcAdapter
+import domain.user.infra.grpc.UserGrpcAdapter
 import io.grpc.ManagedChannel
 import io.grpc.ManagedChannelBuilder
 import org.springframework.context.annotation.Bean

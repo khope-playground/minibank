@@ -1,8 +1,8 @@
-package infra.grpc.client.user
+package domain.user.infra.grpc
 
-import application.dto.UserDto
-import application.dto.UserType
-import domain.spi.UserPort
+import domain.user.application.dto.UserDto
+import domain.user.application.dto.UserType
+import domain.user.domain.spi.UserPort
 import external.proto.GetUserRequest
 import external.proto.UserServiceGrpcKt
 
